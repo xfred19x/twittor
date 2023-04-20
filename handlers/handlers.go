@@ -11,7 +11,7 @@ import (
 	"github.com/xfred19x/twittor/routers"
 )
 
-// Manejadores seteo mi puerto, el Handler y pongo a escuchar al Servidor
+/*Manejadores seteo mi puerto, el Handler y pongo a escuchar al Servidor */
 func Manejadores() {
 
 	//Captura el HTTP para darle el manejo al response writer y al request, validara si hay informacion en el body o header
@@ -25,7 +25,7 @@ func Manejadores() {
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		//en caso no este creado, levantara el puerto 8080
-		PORT = "8080"
+		PORT = "8081"
 	}
 
 	//los cors son los permisos a mis Apis para que sean accesibles desde cualquier lugar

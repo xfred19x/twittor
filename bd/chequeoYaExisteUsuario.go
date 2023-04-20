@@ -8,7 +8,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-// ChequeoYaExisteUsuario recibe un email de parametro y chequea si ya esta en la BD
+/*ChequeoYaExisteUsuario recibe un email de parámetro y chequea si ya está en la BD */
 func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
@@ -31,7 +31,6 @@ func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) {
 		//se retorna el resultado, el false de no Existoso y el ID vació
 		return resultado, false, ID
 	}
-
 	//se retorna el resultado, el  true de OK y el ID
-	return resultado, false, ID
+	return resultado, true, ID
 }

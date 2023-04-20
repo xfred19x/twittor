@@ -4,17 +4,18 @@ import (
 	"context"
 	"log"
 
-	"go.mongodb.org/mongo-driver/mongo"         //driver para conectarme a mongodb
-	"go.mongodb.org/mongo-driver/mongo/options" //driver para conectarme a mongodb
+	//driver para conectarme a mongodb
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-// MongoCN es el objeto de conexion a la BD
+/*MongoCN es el objeto de conexión a la BD */
 var MongoCN = ConectarBD()
 
 // usaremos la funcion "Client" es del paquete mongo que sirve para agregar la cadena de conexion a la BD
 var clientOptions = options.Client().ApplyURI("mongodb+srv://fgonzales:ZzXsgMxx6e4kH8u3@twitter.hgy5riu.mongodb.net/?retryWrites=true&w=majority")
 
-// ConectarBD es la funcion que me permite conectar la BD
+/*ConectarBD es la función que me permite conectar la BD */
 // retorna un objeto del tipo "mongo.Client"
 func ConectarBD() *mongo.Client {
 
@@ -46,7 +47,7 @@ func ConectarBD() *mongo.Client {
 	return client
 }
 
-// ChequeoConnection es el Ping a la BD
+/*ChequeoConnection es el Ping a la BD */
 func ChequeoConnection() int {
 	err := MongoCN.Ping(context.TODO(), nil)
 	if err != nil {
