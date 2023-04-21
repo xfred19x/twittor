@@ -21,6 +21,9 @@ func Manejadores() {
 	//este llamara a la funcion middleW con la funcion chequeoBD y si todo esta ok, retornara el control a routers
 	router.HandleFunc("/registro", middlew.ChequeoBD(routers.Registro)).Methods("POST")
 
+	//este llamara a la funcion middleW con la funcion Login y si todo esta ok, retornara el control a routers
+	router.HandleFunc("/login", middlew.ChequeoBD(routers.Login)).Methods("POST")
+
 	//obtiene el puerto si ya esta creado
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
