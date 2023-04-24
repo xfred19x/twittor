@@ -27,6 +27,9 @@ func Manejadores() {
 	//este llamara a la funcion verPerfil
 	router.HandleFunc("/verperfil", middlew.ChequeoBD(middlew.ValidoJWT(routers.VerPerfil))).Methods("GET")
 
+	//este llamara a la funcion modificarperfil
+	router.HandleFunc("/modificarperfil", middlew.ChequeoBD(middlew.ValidoJWT(routers.ModificarPerfil))).Methods("PUT")
+
 	//obtiene el puerto si ya esta creado
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

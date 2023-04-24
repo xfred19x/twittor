@@ -11,7 +11,7 @@ func IntentoLogin(email string, password string) (models.Usuario, bool) {
 	usu, encontrado, _ := ChequeoYaExisteUsuario(email)
 
 	//se valido y no encontro el usuario
-	if encontrado == false {
+	if !encontrado {
 		//retornara datos del usuario vacio, con el status "false"
 		return usu, false
 	}
