@@ -37,7 +37,7 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 
 	//Se valida si el email que se esta intentado registrar ya existe
 	_, encontrado, _ := bd.ChequeoYaExisteUsuario(t.Email)
-	if encontrado == true {
+	if encontrado {
 		http.Error(w, "Ya existe un usuario registrado con ese email", 400)
 		return
 	}
@@ -50,7 +50,7 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//se validara el status porque a veces mongo retorna vacio
-	if status == false {
+	if !status {
 		http.Error(w, "No se ha logrado insertar el registro de usuario ", 400)
 		return
 	}
