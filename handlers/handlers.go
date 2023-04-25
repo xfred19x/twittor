@@ -27,11 +27,14 @@ func Manejadores() {
 	//este llamara a la funcion verPerfil
 	router.HandleFunc("/verperfil", middlew.ChequeoBD(middlew.ValidoJWT(routers.VerPerfil))).Methods("GET")
 
-	//este llamara a la funcion modificarperfil
+	//este llamara a la funcion modificarPerfil
 	router.HandleFunc("/modificarperfil", middlew.ChequeoBD(middlew.ValidoJWT(routers.ModificarPerfil))).Methods("PUT")
 
-	//este llamara a la funcion modificarperfil
+	//este llamara a la funcion tweet
 	router.HandleFunc("/tweet", middlew.ChequeoBD(middlew.ValidoJWT(routers.GraboTweet))).Methods("POST")
+
+	//este llamara a la funcion leoTweets
+	router.HandleFunc("/leotweets", middlew.ChequeoBD(middlew.ValidoJWT(routers.LeoTweets))).Methods("GET")
 
 	//obtiene el puerto si ya esta creado
 	PORT := os.Getenv("PORT")
