@@ -20,7 +20,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	//vamos a decodificar el body y cargar los datos el la variable usuario "t"
 	err := json.NewDecoder(r.Body).Decode(&t)
 
-	//Validamos si hubo un error
+	//Validamos si hubo un error al decodificar el body
 	if err != nil {
 		http.Error(w, "Usuario y/o Contraseña inválidos "+err.Error(), 400)
 		return
