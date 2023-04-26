@@ -39,6 +39,18 @@ func Manejadores() {
 	//este llamara a la funcion eliminarTweets
 	router.HandleFunc("/eliminartweets", middlew.ChequeoBD(middlew.ValidoJWT(routers.EliminarTweet))).Methods("DELETE")
 
+	//este llamara a la funcion subirAvatar
+	router.HandleFunc("/subiravatar", middlew.ChequeoBD(middlew.ValidoJWT(routers.SubirAvatar))).Methods("POST")
+
+	//este llamara a la funcion obtenerAvatar
+	router.HandleFunc("/obteneravatar", middlew.ChequeoBD(middlew.ValidoJWT(routers.ObtenerAvatar))).Methods("POST")
+
+	//este llamara a la funcion subirBanner
+	router.HandleFunc("/subirbanner", middlew.ChequeoBD(middlew.ValidoJWT(routers.SubirBanner))).Methods("POST")
+
+	//este llamara a la funcion obtenerBanner
+	router.HandleFunc("/obtenerbanner", middlew.ChequeoBD(middlew.ValidoJWT(routers.ObtenerBanner))).Methods("POST")
+
 	//obtiene el puerto si ya esta creado
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
