@@ -10,7 +10,7 @@ import (
 /*InsertoRelacion graba la relación en la BD */
 func InsertoRelacion(t models.Relacion) (bool, error) {
 
-	//configura timeout de conexcion a la BD
+	//configura timeout de conexion a la BD
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 

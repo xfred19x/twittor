@@ -18,40 +18,40 @@ func Manejadores() {
 	router := mux.NewRouter()
 
 	//Cuando desde el navegador se coloque "/registro" del tipo POST
-	//este llamara a la funcion middleW con la funcion chequeoBD y si todo esta ok, retornara el control a routers
+	//este llamara la funcion middleW con la funcion chequeoBD y si todo esta ok, retornara el control a routers
 	router.HandleFunc("/registro", middlew.ChequeoBD(routers.Registro)).Methods("POST")
 
-	//este llamara a la funcion Login y si todo esta ok, retornara el control a routers
+	//este llamara la funcion Login y si todo esta ok, retornara el control a routers
 	router.HandleFunc("/login", middlew.ChequeoBD(routers.Login)).Methods("POST")
 
-	//este llamara a la funcion verPerfil
+	//este llamara la funcion verPerfil
 	router.HandleFunc("/verperfil", middlew.ChequeoBD(middlew.ValidoJWT(routers.VerPerfil))).Methods("GET")
 
-	//este llamara a la funcion modificarPerfil
+	//este llamara la funcion modificarPerfil
 	router.HandleFunc("/modificarperfil", middlew.ChequeoBD(middlew.ValidoJWT(routers.ModificarPerfil))).Methods("PUT")
 
-	//este llamara a la funcion tweet
+	//este llamara la funcion tweet
 	router.HandleFunc("/tweet", middlew.ChequeoBD(middlew.ValidoJWT(routers.GraboTweet))).Methods("POST")
 
-	//este llamara a la funcion leoTweets
+	//este llamara la funcion leoTweets
 	router.HandleFunc("/leotweets", middlew.ChequeoBD(middlew.ValidoJWT(routers.LeoTweets))).Methods("GET")
 
-	//este llamara a la funcion eliminarTweets
+	//este llamara la funcion eliminarTweets
 	router.HandleFunc("/eliminartweets", middlew.ChequeoBD(middlew.ValidoJWT(routers.EliminarTweet))).Methods("DELETE")
 
-	//este llamara a la funcion subirAvatar
+	//este llamara la funcion subirAvatar
 	router.HandleFunc("/subiravatar", middlew.ChequeoBD(middlew.ValidoJWT(routers.SubirAvatar))).Methods("POST")
 
-	//este llamara a la funcion obtenerAvatar
+	//este llamara la funcion obtenerAvatar
 	router.HandleFunc("/obteneravatar", middlew.ChequeoBD(middlew.ValidoJWT(routers.ObtenerAvatar))).Methods("GET")
 
-	//este llamara a la funcion subirBanner
+	//este llamara la funcion subirBanner
 	router.HandleFunc("/subirbanner", middlew.ChequeoBD(middlew.ValidoJWT(routers.SubirBanner))).Methods("POST")
 
-	//este llamara a la funcion obtenerBanner
+	//este llamara la funcion obtenerBanner
 	router.HandleFunc("/obtenerbanner", middlew.ChequeoBD(middlew.ValidoJWT(routers.ObtenerBanner))).Methods("GET")
 
-	//este llamara a la funcion altaRelacion
+	//este llamara la funcion altaRelacion
 	router.HandleFunc("/altarelacion", middlew.ChequeoBD(middlew.ValidoJWT(routers.AltaRelacion))).Methods("GET")
 
 	//obtiene el puerto si ya esta creado

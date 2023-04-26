@@ -12,7 +12,7 @@ func AltaRelacion(w http.ResponseWriter, r *http.Request) {
 
 	//vamos a obtener el parametro "id" del URL
 	ID := r.URL.Query().Get("id")
-	//valida que tenga contenido el "id"
+	//valida que tenga contenido el parametro "id"
 	if len(ID) < 1 {
 		http.Error(w, "El parámetro ID es obligatorio", http.StatusBadRequest)
 		return
