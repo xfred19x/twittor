@@ -54,6 +54,9 @@ func Manejadores() {
 	//este llamara la funcion altaRelacion
 	router.HandleFunc("/altarelacion", middlew.ChequeoBD(middlew.ValidoJWT(routers.AltaRelacion))).Methods("GET")
 
+	//este llamara la funcion bajaRelacion
+	router.HandleFunc("/bajarelacion", middlew.ChequeoBD(middlew.ValidoJWT(routers.BajaRelacion))).Methods("DELETE")
+
 	//obtiene el puerto si ya esta creado
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
